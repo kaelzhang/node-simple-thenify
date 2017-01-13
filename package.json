@@ -1,12 +1,10 @@
 {
   "name": "simple-thenify",
   "version": "1.0.0",
-  "description": "simple-thenify",
+  "description": "Make sure a function is thenable.",
   "main": "index.js",
   "scripts": {
-    "build": "babel src --out-dir lib",
-    "test": "npm run build && ava --verbose --timeout=10s",
-    "prepublish": "npm run build"
+    "test": "ava --verbose --timeout=10s"
   },
   "repository": {
     "type": "git",
