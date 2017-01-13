@@ -49,4 +49,13 @@ const thenify = require('..')
   })
 })
 
-
+test.cb('reject', t => {
+  thenify(() => Promise.reject(1))()
+  .then(() => {
+    t.fail()
+    t.end()
+  }, (e) => {
+    t.is(e, 1)
+    t.end()
+  })
+})
