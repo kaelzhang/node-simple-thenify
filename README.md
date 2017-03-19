@@ -14,7 +14,9 @@
 
 # simple-thenify
 
-<!-- description -->
+Make sure that a function will return a promise (thenable).
+
+If a function does not return a promise, it will `promise.resolve` the return value.
 
 ## Install
 
@@ -25,7 +27,10 @@ $ npm install simple-thenify --save
 ## Usage
 
 ```js
-const simple_thenify = require('simple-thenify')
+const thenify = require('simple-thenify')
+const fn = thenify(x => x + 1)
+
+fn(1).then(console.log) // 2
 ```
 
 ## License
