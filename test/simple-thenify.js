@@ -39,23 +39,22 @@ const thenify = require('..')
   e: 1
 }
 ].forEach(({d, fn ,e, args = [], self = null}) => {
-  test.cb(d, t => {
+  test(d, t => {
     fn = thenify(fn)
-    fn.apply(self, args)
+
+    return fn.apply(self, args)
     .then((value) => {
       t.is(value, e)
-      t.end()
     })
   })
 })
 
-test.cb('reject', t => {
-  thenify(() => Promise.reject(1))()
+test('reject', t => {
+
+  return thenify(() => Promise.reject(1))()
   .then(() => {
     t.fail()
-    t.end()
   }, (e) => {
     t.is(e, 1)
-    t.end()
   })
 })
